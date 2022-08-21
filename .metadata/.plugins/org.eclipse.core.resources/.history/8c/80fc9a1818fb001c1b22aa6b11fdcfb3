@@ -1,0 +1,32 @@
+package examplePackage;
+
+import java.net.URL;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+
+public class exampleCLass  {
+	public static void main(String[] args)throws Exception
+	{
+	
+	DesiredCapabilities dc = new DesiredCapabilities();
+	URL url = new URL("http://127.0.0.1:4723/wd/hub");
+	dc.setCapability(MobileCapabilityType.AUTOMATION_NAME,"Appium");
+	dc.setCapability(MobileCapabilityType.DEVICE_NAME,"Android Emulator");
+	dc.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
+	dc.setCapability(MobileCapabilityType.PLATFORM_VERSION,"11.0");
+	dc.setCapability(MobileCapabilityType.APP,"/Users/meganathjayapalan/myapkfiles/app-debug.apk");
+	
+	AndroidDriver driver = new AndroidDriver(url,dc);
+	//driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[3]/android.widget.Button[2]")).click();
+	
+	
+	driver.findElement(By.tagName("button").partialLinkText("have")).click();
+	Thread.sleep(15000);
+	driver.quit();
+	
+}
+}
