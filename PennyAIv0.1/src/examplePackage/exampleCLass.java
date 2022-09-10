@@ -86,7 +86,7 @@ AndroidDriver driver = new AndroidDriver(url,dc);
 	//Thread.sleep(18000);
 	WebElement finalNext= driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[1]/android.view.View[2]/android.app.Dialog/android.view.View/android.view.View/android.view.View[2]/android.view.View[1]/android.widget.Button"));
 	//if((finalNext.isDisplayed()&&finalNext.isEnabled())!=true)
-	Thread.sleep(3000);
+	Thread.sleep(6000);
 	finalNext.click();
 	Thread.sleep(3000);
 	service.stop();
