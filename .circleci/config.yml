@@ -13,7 +13,7 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
       - image: cimg/base:2022.03
-       auth:
+        auth:
           username: meganath2013
           password: 251fe76b-52d0-40fa-b114-e76e8ee4c66d
     # Add steps to the job
