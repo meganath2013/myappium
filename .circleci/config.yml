@@ -26,6 +26,7 @@ jobs:
           name: Buildp[[p;].[]]
           command: |
             ls -a
+            cd PennyAIv0.1
             export NODE_OPTIONS=--max_old_space_size=8096
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
             sudo apt-get update
