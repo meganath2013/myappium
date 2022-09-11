@@ -32,7 +32,9 @@ jobs:
             sudo apt-get update
             sudo apt-get upgrade
             sudo apt-get install npm
-            npm install && npm run build
+            npm install 
+            npm install Appium
+            Appium
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
