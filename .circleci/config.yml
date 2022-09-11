@@ -12,7 +12,7 @@ jobs:
     # Be sure to update the Docker image tag below to openjdk version of your application.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
-      - image: cimg/openjdk:11.0
+      - image: cimg/base:2022.03
        auth:
           username: meganath2013
           password: 251fe76b-52d0-40fa-b114-e76e8ee4c66d
@@ -25,18 +25,18 @@ jobs:
       - run:
           name: Buildp[[p;].[]]
           command: |
-      ls -a
-      export NODE_OPTIONS=--max_old_space_size=8096
-      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-      sudo apt-get update
-      sudo apt-get upgrade
-      sudo apt-get install npm
-      npm install && npm run build
+            ls -a
+            export NODE_OPTIONS=--max_old_space_size=8096
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+            sudo apt-get update
+            sudo apt-get upgrade
+            sudo apt-get install npm
+            npm install && npm run build
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
+  sample_workflow: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build
