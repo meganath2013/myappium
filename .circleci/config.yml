@@ -3,10 +3,12 @@ version: 2.1
 jobs:
   build-and-test:
     macos:
-      xcode: 11.3.0
+      xcode: 11.7.0
     environment:
       FL_OUTPUT_DIR: output
       FASTLANE_LANE: test
+      JAVA_HOME: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+      ANDROID_SDK_ROOT: /usr/local/Caskroom/android-sdk/4333796
     steps:
       - checkout
       - run: bundle install
