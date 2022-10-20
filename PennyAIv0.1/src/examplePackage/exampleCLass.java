@@ -21,13 +21,13 @@ public class exampleCLass  {
 	{
 	
 
-//		AppiumDriverLocalService service = AppiumDriverLocalService
-//				.buildService(new AppiumServiceBuilder()
-//				.usingDriverExecutable(new File("//Users/meganathjayapalan/.nvm/versions/node/v14.15.0/bin/node"))
-//				.withAppiumJS(new File("//Users/meganathjayapalan/.nvm/versions/node/v14.15.0/lib/node_modules/appium/build/lib/main.js"))
-//				.usingPort(4723)
-//				.withIPAddress("127.0.0.1"));
-//				service.start();
+		AppiumDriverLocalService service = AppiumDriverLocalService
+				.buildService(new AppiumServiceBuilder()
+				.usingDriverExecutable(new File("//Users/meganathjayapalan/.nvm/versions/node/v14.15.0/bin/node"))
+				.withAppiumJS(new File("//Users/meganathjayapalan/.nvm/versions/node/v14.15.0/lib/node_modules/appium/build/lib/main.js"))
+				.usingPort(4723)
+				.withIPAddress("127.0.0.1"));
+				service.start();
 				
 				
 	DesiredCapabilities dc = new DesiredCapabilities();
