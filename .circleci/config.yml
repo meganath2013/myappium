@@ -20,4 +20,4 @@ jobs:
 workflows:
   sampletest:
     jobs:
-      build-and-test
+      -build-and-test
