@@ -18,6 +18,8 @@ jobs:
           brew install android-sdk
           brew install android-platform-tools
           brew install --cask intel-haxm
+          brew update
+          brew install maven
       - run: |
           export PATH=$JAVA_HOME/bin:$PATH
           echo "y" | sdkmanager --install 'system-images;android-28;google_apis;x86_64'
@@ -34,23 +36,18 @@ jobs:
           adb devices
           echo "Emulator started"
       - run: |
-          rm -rf node_modules
-          npm cache clean --force
-          rm -rf package-lock.json
-      - run: npm install --save-dev
-      - run: npm audit fix
-      - run: npm install --save-dev chai
-      - run:
-          name: Starting metro in background
-          command: npm start --reset-cache &> metro-android.log
-          background: true
-      - run: |
-          react-native run-android &> build-android.log
-          sleep 30
-      - run:
-          name: Run E2E Tests - Android
-          command: npm run e2e-test:android -- Sanity &> test-execution-console-android.log
-          no_output_timeout: 30m
+
+    #   - run:
+    #       name: Starting metro in background
+    #       command: npm start --reset-cache &> metro-android.log
+    #       background: true
+    #   - run: |
+    #       react-native run-android &> build-android.log
+    #       sleep 30
+    #   - run:
+    #       name: Run E2E Tests - Android
+    #       command: npm run e2e-test:android -- Sanity &> test-execution-console-android.log
+    #       no_output_timeout: 30m
       - store_artifacts:
           path: metro-android.log
           destination: metro-android.log
