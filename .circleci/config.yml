@@ -35,6 +35,8 @@ jobs:
           adb wait-for-device
           adb devices
           echo "Emulator started"
+          ipconfig getifaddr en0
+          dig +short myip.opendns.com @resolver1.opendns.com
     #   - run: |
 
     #   - run:
