@@ -5,13 +5,13 @@ jobs:
     macos:
       xcode: 11.7.0
     environment:
-#      FL_OUTPUT_DIR: output
-#      FASTLANE_LANE: test
+      #      FL_OUTPUT_DIR: output
+      #      FASTLANE_LANE: test
       JAVA_HOME: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
       ANDROID_SDK_ROOT: /usr/local/Caskroom/android-sdk/4333796
     steps:
       - checkout
-    #   - run: npm install -g react-native-cli
+      #   - run: npm install -g react-native-cli
       - run: |
           brew install --cask homebrew/cask-versions/adoptopenjdk8
           brew install gradle
@@ -32,24 +32,24 @@ jobs:
           command: export ANDROID_AVD_HOME=/Users/$USER/.android/avd && export ANDROID_HOME=$ANDROID_SDK_ROOT && $ANDROID_HOME/emulator/emulator -avd test_device -skin 1080x1920 -memory 1024 -engine qemu2 -netfast -no-audio -no-snapshot -accel on
           background: true
       - run: |
+
           adb wait-for-device
           adb devices
           echo "Emulator started"
           ipconfig getifaddr en0
           dig +short myip.opendns.com @resolver1.opendns.com
-    #   - run: |
-
-    #   - run:
-    #       name: Starting metro in background
-    #       command: npm start --reset-cache &> metro-android.log
-    #       background: true
-    #   - run: |
-    #       react-native run-android &> build-android.log
-    #       sleep 30
-    #   - run:
-    #       name: Run E2E Tests - Android
-    #       command: npm run e2e-test:android -- Sanity &> test-execution-console-android.log
-    #       no_output_timeout: 30m
+      #   - run: |
+      #   - run:
+      #       name: Starting metro in background
+      #       command: npm start --reset-cache &> metro-android.log
+      #       background: true
+      #   - run: |
+      #       react-native run-android &> build-android.log
+      #       sleep 30
+      #   - run:
+      #       name: Run E2E Tests - Android
+      #       command: npm run e2e-test:android -- Sanity &> test-execution-console-android.log
+      #       no_output_timeout: 30m
       - store_artifacts:
           path: metro-android.log
           destination: metro-android.log
@@ -62,11 +62,10 @@ jobs:
       - store_artifacts:
           path: __tests__/e2e/test-results
           destination: test-results-android
-          
 
 # Orchestrate our job run sequence
 workflows:
   build_and_test:
     jobs:
-#      - ios
+      #      - ios
       - android
